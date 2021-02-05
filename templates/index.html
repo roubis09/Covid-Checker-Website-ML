@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Covid-19</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background-image: url('https://wallpaperaccess.com/full/2348499.png');">
+ <div class="login" style="top: 20%;">
+	<h1>Covid-19 Predictor </h1>
+	
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Trip" placeholder="Fever (Type 1 if yes or 0 if No) " required="required" />
+        <input type="text" name="Fever" placeholder="Dry Cough (Type 1 if yes or 0 if No) " required="required" />
+        <input type="text" name="Itchy Eyes" placeholder="Tiredness (Type 1 if yes or 0 if No) " required="required" />
+        <input type="text" name="Runny Nose" placeholder="Diarrhoea (Type 1 if yes or 0 if No) " required="required" />
+        <input type="text" name="Trouble Breathing" placeholder="Headache (Type 1 if yes or 0 if No) " required="required" />
+        <input type="text" name="taste" placeholder="Loss of taste or smell (Type 1 if yes or 0 if No)" required="required" />
+		<input type="text" name="throat" placeholder="Sore Throat (Type 1 if yes or 0 if No)" required="required" />
+		<input type="text" name="Chest" placeholder="Chest pain (Type 1 if yes or 0 if No)" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict Disease</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
